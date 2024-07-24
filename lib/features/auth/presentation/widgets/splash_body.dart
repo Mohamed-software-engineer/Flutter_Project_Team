@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:e_commerce/core/utiles/assets.dart';
 import 'package:e_commerce/features/auth/presentation/screens/login.dart';
+import 'package:e_commerce/features/auth/presentation/screens/welcom_screen.dart';
+import 'package:e_commerce/features/auth/presentation/widgets/welcom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -17,7 +19,7 @@ class _SplashBodyState extends State<SplashBody> {
   void initState() {
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return Login();
+        return WelcomScreen();
       }));
     });
     super.initState();

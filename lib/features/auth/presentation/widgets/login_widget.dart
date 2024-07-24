@@ -1,6 +1,8 @@
 import 'package:e_commerce/features/auth/data/accounts.dart';
 import 'package:e_commerce/features/auth/data/createdemails.dart';
 import 'package:e_commerce/features/auth/presentation/screens/home_page.dart';
+import 'package:e_commerce/features/auth/presentation/widgets/button_widget.dart';
+import 'package:e_commerce/features/auth/presentation/widgets/error_text_form_field.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import '../screens/singUp.dart';
@@ -20,57 +22,75 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [
-        Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Container(
-              height: 900,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/ecommerce.png"),
-                    fit: BoxFit.fill),
-              ),
-              child: const Row(
-                //crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 100,
-                      ),
-                      Text(
-                        "Log in...",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  )
-                ],
+      body: Stack(
+      children: <Widget>[
+        // Background Color
+        Container(
+          color: Colors.pink.shade50,
+        ),
+        // Top Right Circle
+        Align(
+          alignment: Alignment.topRight,
+          child: Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(200), // نصف قطر النصف دائرة
               ),
             ),
-            Container(
-              height: 700,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(60),
-                    topRight: Radius.circular(60)),
-                color: Colors.white70,
+          ),
+        ),
+        // Bottom Left Circle
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(200), // نصف قطر النصف دائرة
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(30),
+            ),
+          ),
+        ),
+        // Title Text
+        Positioned(
+          top: 100,
+          left: 20,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Welcom',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                'Back',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+            child: Container(
+              margin: EdgeInsets.all(50),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 80,
-                    ),
                     TextFormFieldWidget(
                       input: userName,
                       labelTextInput: 'User Name',
@@ -89,35 +109,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 30),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.blue[900],
-                          borderRadius: BorderRadius.circular(30)),
-                      child: MaterialButton(
-                        onPressed: () {
-                          String enterdUserName = userName.text;
-                          String enterdPassword = password.text;
-                          for (Createdemails account in accounts) {
-                            if (account.userName == enterdUserName &&
-                                account.Password == enterdPassword) {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) {
-                                return const HomePage();
-                              }));
-                            } else {}
-                          }
-                        },
-                        child: const Text(
-                          "Log in",
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    ButtonWidget(password: password.text, confirmPassword: '', labelOfButton: 'Log in', choseLapelToButton: false, userName: userName.text),
                     const SizedBox(
                       height: 30,
                     ),
@@ -128,8 +120,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                             onPressed: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (_) {
-                                return SingUp();
-                              }));
+                                    return SingUp();
+                                  }));
                             },
                             child: const Text(
                               "Sing up",
@@ -141,9 +133,21 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ),
               ),
             )
-          ],
         ),
-      ]),
+        // Back Button
+        Positioned(
+          top: 40,
+          left: 10,
+          child: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+      ],
+              ),
     );
   }
 }
