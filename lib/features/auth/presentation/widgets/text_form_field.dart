@@ -32,7 +32,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
               borderSide: const BorderSide(
-                color: Colors.black,
+                color: Colors.blue,
               ))),
     );
   }
