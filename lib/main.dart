@@ -1,4 +1,7 @@
 import 'package:e_commerce/features/auth/presentation/screens/splash.dart';
+import 'package:e_commerce/features/home/presentation/views/details_screen.dart';
+import 'package:e_commerce/features/home/presentation/views/home_screen.dart';
+import 'package:e_commerce/features/home/presentation/widgets/product_scroll.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash(),
+      routes: {"detailScreen":(context)=>DetailsScreen()},
+      home:HomeScreen(),
     );
   }
 }

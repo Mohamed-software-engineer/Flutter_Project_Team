@@ -30,6 +30,7 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.6
   dio: ^5.5.0+1
+  dartz:
   flutter:
     sdk: flutter
   lottie: ^3.1.2
