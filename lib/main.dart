@@ -1,8 +1,7 @@
-import 'package:e_commerce/features/auth/presentation/screens/splash.dart';
+import 'package:e_commerce/features/auth/presentation/views/splash.dart';
 import 'package:e_commerce/features/home/presentation/views/details_screen.dart';
-import 'package:e_commerce/features/home/presentation/views/home_screen.dart';
-import 'package:e_commerce/features/home/presentation/widgets/product_scroll.dart';
 import 'package:flutter/material.dart';
+import 'features/home/presentation/views/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {"detailScreen":(context)=>DetailsScreen()},
-      home:HomeScreen(),
+      routes: {"detailScreen": (context) => DetailsScreen()},
+      home: HomeScreen(),
     );
   }
 }

@@ -1,9 +1,6 @@
 import 'dart:async';
-
 import 'package:e_commerce/core/utiles/assets.dart';
-import 'package:e_commerce/features/auth/presentation/screens/login.dart';
-import 'package:e_commerce/features/auth/presentation/screens/welcom_screen.dart';
-import 'package:e_commerce/features/auth/presentation/widgets/welcom_widget.dart';
+import 'package:e_commerce/features/auth/presentation/views/welcom_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

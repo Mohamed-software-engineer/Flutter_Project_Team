@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
+import '../../../home/presentation/views/home_screen.dart';
 import '../../data/accounts.dart';
 import '../../data/createdemails.dart';
-import '../screens/home_page.dart';
 
 class ButtonWidget extends StatelessWidget {
   final bool choseLapelToButton;
@@ -12,7 +11,12 @@ class ButtonWidget extends StatelessWidget {
   final String labelOfButton;
 
   ButtonWidget(
-      {super.key, required this.password, required this.confirmPassword, required this.labelOfButton, required this.choseLapelToButton, required this.userName});
+      {super.key,
+      required this.password,
+      required this.confirmPassword,
+      required this.labelOfButton,
+      required this.choseLapelToButton,
+      required this.userName});
 
   @override
   Widget build(BuildContext context) {
@@ -20,32 +24,25 @@ class ButtonWidget extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 30),
       width: 200,
       decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(30)),
+          color: Colors.blue, borderRadius: BorderRadius.circular(30)),
       child: MaterialButton(
         onPressed: () {
           if (choseLapelToButton) {
-            String enteredPassword = password;
-            String confirmedPassword = confirmPassword;
-
-            if (enteredPassword == confirmedPassword) {
+            if (password == confirmPassword && password.isNotEmpty) {
               accounts.add(Createdemails(userName, password));
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) {
-                    return const HomePage();
-                  }));
+              Navigator.push(context, MaterialPageRoute(builder: (_) {
+                return HomeScreen();
+              }));
             }
-          }
-          else {
+          } else {
             String enterdUserName = userName;
             String enterdPassword = password;
             for (Createdemails account in accounts) {
               if (account.userName == enterdUserName &&
                   account.Password == enterdPassword) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) {
-                      return const HomePage();
-                    }));
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return HomeScreen();
+                }));
               }
             }
           }

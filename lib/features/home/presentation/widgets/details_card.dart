@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class DetailsCard extends StatelessWidget {
   const DetailsCard({Key? key}) : super(key: key);
 
@@ -9,7 +10,8 @@ class DetailsCard extends StatelessWidget {
       child: DCard(
         imageUrl: 'assets/NOIMAGE.jpeg',
         title: 'Product Title',
-        description: 'This is a detailed description of the product. It covers all the features, specifications, and benefits of the product.',
+        description:
+            'This is a detailed description of the product. It covers all the features, specifications, and benefits of the product.',
         price: '\$29.99',
         rating: 4.5,
         reviewsCount: 123,
@@ -76,7 +78,9 @@ class DCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10.0),
-            Text('Available : $availableItems', style: TextStyle(
+            Text(
+              'Available : $availableItems',
+              style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.grey[600],
@@ -109,7 +113,6 @@ class DCard extends StatelessWidget {
                 ),
               ],
             ),
-
             SizedBox(height: 40.0),
             Center(
               child: ElevatedButton(
@@ -119,11 +122,14 @@ class DCard extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   fixedSize: Size(250, 50),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                child: Text('Add to Cart',
-                  style: TextStyle(fontSize: 22,color: Colors.white),),
+                child: Text(
+                  'Add to Cart',
+                  style: TextStyle(fontSize: 22, color: Colors.white),
+                ),
               ),
             ),
           ],
