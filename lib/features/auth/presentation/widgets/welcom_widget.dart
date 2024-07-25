@@ -1,8 +1,6 @@
-import 'package:e_commerce/features/auth/presentation/screens/login.dart';
+import 'package:e_commerce/features/auth/presentation/views/login.dart';
 import 'package:flutter/material.dart';
-
-import '../screens/singUp.dart';
-import 'button_widget.dart';
+import '../views/singUp.dart';
 
 class WelcomWidget extends StatelessWidget {
   const WelcomWidget({super.key});
@@ -64,57 +62,64 @@ class WelcomWidget extends StatelessWidget {
           ),
           Positioned(
               child: Container(
-                margin: EdgeInsets.all(50),
-                child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+            margin: EdgeInsets.all(50),
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              child: MaterialButton(
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (_){
-                                    return Login();
-                                  }
-                                  )
-                                  );
-                                },
-                                child: Text(
-                                  'Log in',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                        Container(
+                          width: 130,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.blue,
+                          ),
+                          child: MaterialButton(
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) {
+                                return Login();
+                              }));
+                            },
+                            child: Text(
+                              'Log in',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            MaterialButton(
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (_){
-                                  return SingUp();
-                                }
-                                )
-                                );
-                              },
-                              child: Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.blue,
+                          ),
+                          child: MaterialButton(
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) {
+                                return SingUp();
+                              }));
+                            },
+                            child: Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
                               ),
-                            )
-                          ],
+                            ),
+                          ),
                         )
                       ],
                     )
-                ),
-              )
-          ),
+                  ],
+                )),
+          )),
         ],
       ),
     );

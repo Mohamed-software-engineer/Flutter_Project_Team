@@ -6,13 +6,13 @@ class TextFormFieldWidget extends StatefulWidget {
   String labelTextInput;
   String hintTextInput;
   final IconData? prefixIconType;
-  TextFormFieldWidget(
-      {super.key,
-      required this.input,
-      required this.labelTextInput,
-      required this.hintTextInput,
-      required this.prefixIconType,
-      });
+  TextFormFieldWidget({
+    super.key,
+    required this.input,
+    required this.labelTextInput,
+    required this.hintTextInput,
+    required this.prefixIconType,
+  });
 
   @override
   State<TextFormFieldWidget> createState() => _TextFormFieldWidgetState();

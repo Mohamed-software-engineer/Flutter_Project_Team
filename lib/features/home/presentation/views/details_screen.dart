@@ -7,15 +7,20 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color(0xFF0f0c29),
-        actions: [Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Icon(Icons.search,color: Colors.white,size: 45,),
-        )],
-
+      appBar: AppBar(
+        backgroundColor: Color(0xFF0f0c29),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Icon(
+              Icons.search,
+              color: Colors.white,
+              size: 45,
+            ),
+          )
+        ],
       ),
-
-      body:DetailsCard(),
+      body: DetailsCard(),
     );
   }
 }

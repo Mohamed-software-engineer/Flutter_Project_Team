@@ -16,7 +16,7 @@ class SingupWidget extends StatelessWidget {
         children: <Widget>[
           // Background Color
           Container(
-            color: Colors.pink.shade50, // لون خلفية الصفحة
+            color: Colors.pink.shade50,
           ),
           // Top Right Circle
           Align(
@@ -27,7 +27,7 @@ class SingupWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(200), // نصف قطر النصف دائرة
+                  bottomLeft: Radius.circular(200),
                 ),
               ),
             ),
@@ -41,7 +41,7 @@ class SingupWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(200), // نصف قطر النصف دائرة
+                  topRight: Radius.circular(200),
                 ),
               ),
             ),
@@ -81,20 +81,47 @@ class SingupWidget extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextFormFieldWidget(input: fullName, labelTextInput: 'Name', hintTextInput: 'Name', prefixIconType: Icons.person_outline),
-                    const SizedBox(height: 30,),
-                    TextFormFieldWidget(input: email, labelTextInput: 'email', hintTextInput: 'email', prefixIconType: Icons.email_outlined),
-                    const SizedBox(height: 30,),
-                    TextFormFieldWidget(input: password, labelTextInput: 'Password', hintTextInput: 'Password', prefixIconType: Icons.lock_outline),
-                    const SizedBox(height: 30,),
-                    TextFormFieldWidget(input: confirmPassword, labelTextInput: 'Confirmed Password', hintTextInput: 'Confirmed Password', prefixIconType: Icons.lock_outline),
-                    const SizedBox(height: 50,),
-                    ButtonWidget(password: password.text, confirmPassword: confirmPassword.text, labelOfButton: 'Sign Up', choseLapelToButton: true, userName: fullName.text)
+                    TextFormFieldWidget(
+                        input: fullName,
+                        labelTextInput: 'Name',
+                        hintTextInput: 'Name',
+                        prefixIconType: Icons.person_outline),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFormFieldWidget(
+                        input: email,
+                        labelTextInput: 'email',
+                        hintTextInput: 'email',
+                        prefixIconType: Icons.email_outlined),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFormFieldWidget(
+                        input: password,
+                        labelTextInput: 'Password',
+                        hintTextInput: 'Password',
+                        prefixIconType: Icons.lock_outline),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFormFieldWidget(
+                        input: confirmPassword,
+                        labelTextInput: 'Confirmed Password',
+                        hintTextInput: 'Confirmed Password',
+                        prefixIconType: Icons.lock_outline),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    ButtonWidget(
+                        password: password.text,
+                        confirmPassword: confirmPassword.text,
+                        labelOfButton: 'Sign Up',
+                        choseLapelToButton: true,
+                        userName: fullName.text)
                   ],
-                )
-            ),
-          )
-          ),
+                )),
+          )),
           // Back Button
           Positioned(
             top: 40,
