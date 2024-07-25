@@ -37,12 +37,12 @@ class ShoppingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4.0,
+      elevation: 5.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -70,15 +70,34 @@ class ShoppingCard extends StatelessWidget {
                 fontSize: 16.0,
                 color: Colors.grey[600],
               ),
+              maxLines: 2,
             ),
             SizedBox(height: 10.0),
-            Text(
-              price,
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-              ),
+            Row(
+              children: [
+                Text(
+                  price,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                ),
+                Spacer(),
+                Row(
+                  children: [
+                    Icon(Icons.star, color: Colors.amber, size: 20.0),
+                    SizedBox(width: 5.0),
+                    Text(
+                      '4.7',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

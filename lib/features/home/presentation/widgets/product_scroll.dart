@@ -11,7 +11,9 @@ class ProductScroll extends StatelessWidget {
 
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: .7
+            childAspectRatio: .6,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 5,
         ));
   }
 }

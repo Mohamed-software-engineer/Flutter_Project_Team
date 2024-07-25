@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/home/presentation/widgets/carouselSlider.dart';
 import 'package:e_commerce/features/home/presentation/widgets/category_scroll.dart';
 import 'package:e_commerce/features/home/presentation/widgets/product_scroll.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class _homeScreenState extends State<HomeScreen> {
 
       body:CustomScrollView(slivers: [
         SliverToBoxAdapter(child:CategoryScroll()),
+        SliverToBoxAdapter(child: Carousel()),
         SliverToBoxAdapter(child:Padding(
           padding: const EdgeInsets.only(left:20),
           child: Text("popular product",style: TextStyle(color: Colors.grey,fontSize:17,fontWeight: FontWeight.bold),),
