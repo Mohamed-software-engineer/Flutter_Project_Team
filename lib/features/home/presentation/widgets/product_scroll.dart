@@ -54,7 +54,7 @@ class _ProductScrollState extends State<ProductScroll> {
                       title: product[index].productTitle!,
                       price: product[index].productPrice!,
                       rate: product[index].productStarRating!,
-                      rateNum: product[index].productNumRatings,
+                      rateNum: product[index].productNumRatings, description: '',
                     );
                   },
                 ),
@@ -86,4 +86,3 @@ class _ProductScrollState extends State<ProductScroll> {
         ))*/
 
 /**/
->>>>>>> 3bf6102c63c3a6ea6d4ea569b908e1a3a3f43fb1

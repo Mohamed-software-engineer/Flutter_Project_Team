@@ -47,21 +47,6 @@ class _homeScreenState extends State<HomeScreen> {
               child: ProductScroll())),
         ],
       ),
-<<<<<<< HEAD
-
-
-
-      body:CustomScrollView(slivers: [
-        SliverToBoxAdapter(child:CategoryScroll()),
-        SliverToBoxAdapter(child: Carousel()),
-        SliverToBoxAdapter(child:Padding(
-          padding: const EdgeInsets.only(left:20),
-          child: Text("popular product",style: TextStyle(color: Colors.grey,fontSize:17,fontWeight: FontWeight.bold),),
-        )),
-         ProductScroll()
-      ],),
-=======
->>>>>>> 3bf6102c63c3a6ea6d4ea569b908e1a3a3f43fb1
     );
   }
 }
