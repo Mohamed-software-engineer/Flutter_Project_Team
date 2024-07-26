@@ -3,15 +3,26 @@ import 'package:e_commerce/features/auth/presentation/widgets/button_widget.dart
 import 'package:e_commerce/features/auth/presentation/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class SingupWidget extends StatelessWidget {
+import '../../../home/presentation/views/home_screen.dart';
+import '../../data/accounts.dart';
+import '../../data/createdemails.dart';
+
+class SingupWidget extends StatefulWidget {
   const SingupWidget({super.key});
 
   @override
+  State<SingupWidget> createState() => _SingupWidgetState();
+}
+
+class _SingupWidgetState extends State<SingupWidget> {
+
+  TextEditingController fullName = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController fullName = TextEditingController();
-    TextEditingController email = TextEditingController();
-    TextEditingController password = TextEditingController();
-    TextEditingController confirmPassword = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -20,6 +31,7 @@ class SingupWidget extends StatelessWidget {
                 image: DecorationImage(
                 image: AssetImage("assets/flutter1.png"),
                  fit: BoxFit.cover,
+
                 ),
               ),
             child: SizedBox(
@@ -34,7 +46,7 @@ class SingupWidget extends StatelessWidget {
                           input: fullName,
                           labelTextInput: 'Name',
                           hintTextInput: 'Name',
-                          prefixIconType: Icons.person_outline),
+                          prefixIconType: Icons.person_outline, obscureTextValue: false, suffixTogel: false,),
                       const SizedBox(
                         height: 30,
                       ),
@@ -42,7 +54,7 @@ class SingupWidget extends StatelessWidget {
                           input: email,
                           labelTextInput: 'email',
                           hintTextInput: 'email',
-                          prefixIconType: Icons.email_outlined),
+                          prefixIconType: Icons.email_outlined, suffixTogel: false, obscureTextValue: false,),
                       const SizedBox(
                         height: 30,
                       ),
@@ -50,7 +62,7 @@ class SingupWidget extends StatelessWidget {
                           input: password,
                           labelTextInput: 'Password',
                           hintTextInput: 'Password',
-                          prefixIconType: Icons.lock_outline),
+                          prefixIconType: Icons.lock_outline, obscureTextValue: true, suffixTogel: true,),
                       const SizedBox(
                         height: 30,
                       ),
@@ -58,16 +70,16 @@ class SingupWidget extends StatelessWidget {
                           input: confirmPassword,
                           labelTextInput: 'Confirmed Password',
                           hintTextInput: 'Confirmed Password',
-                          prefixIconType: Icons.lock_outline),
+                          prefixIconType: Icons.lock_outline, obscureTextValue: true, suffixTogel: true ,),
                       const SizedBox(
                         height: 60,
                       ),
                       ButtonWidget(
-                          password: password.text,
-                          confirmPassword: confirmPassword.text,
+                          passwordController: password,
+                          confirmPasswordController: confirmPassword,
                           labelOfButton: 'Sign Up',
                           choseLapelToButton: true,
-                          userName: fullName.text),
+                          fullNameController: fullName, emailController: email,),
 
                       const SizedBox(height: 40,),
 

@@ -25,6 +25,7 @@ class HomeRepoImpl implements HomeRepo {
       for (var i in newData['data']['products']) {
         product.add(ProductByCategoryMoedl.fromJson(i));
       }
+      print('API Response: $newData');
       return right(product);
     } catch (e) {
       return left(ServerError(e.toString()));

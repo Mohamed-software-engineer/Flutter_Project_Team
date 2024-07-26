@@ -103,6 +103,7 @@ class _homeScreenState extends State<HomeScreen> {
 
       body: CustomScrollView(
         slivers: [
+          SliverToBoxAdapter(child: Carousel(),),
           SliverToBoxAdapter(child: CategoryScroll()),
           SliverToBoxAdapter(
               child: Padding(

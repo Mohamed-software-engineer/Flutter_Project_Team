@@ -41,25 +41,30 @@ class _LoginWidgetState extends State<LoginWidget> {
                 labelTextInput: 'User Name',
                 hintTextInput: 'example@gmail.com',
                 prefixIconType: Icons.email_outlined,
+                obscureTextValue: false,
+                suffixTogel: false,
               ),
-
-              const SizedBox(height: 30,),
-
+              const SizedBox(
+                height: 30,
+              ),
               TextFormFieldWidget(
                 input: password,
                 labelTextInput: 'Password',
                 hintTextInput: '',
                 prefixIconType: Icons.lock_outline,
+                obscureTextValue: true, suffixTogel: true,
               ),
 
               const SizedBox(height: 60,),
 
               ButtonWidget(
-                  password: password.text,
-                  confirmPassword: '',
-                  labelOfButton: 'Log in',
-                  choseLapelToButton: false,
-                  userName: userName.text),
+                passwordController: password,
+                labelOfButton: 'Log in',
+                choseLapelToButton: true,
+                fullNameController: userName,
+                confirmPasswordController: null,
+                emailController: null,
+              ),
 
               const SizedBox(height: 20,),
 
@@ -122,8 +127,8 @@ class _LoginWidgetState extends State<LoginWidget> {
               ],
             ),
           ),
-        ]
-      ),
-    );
+        ],
+        ),
+      );
   }
 }
