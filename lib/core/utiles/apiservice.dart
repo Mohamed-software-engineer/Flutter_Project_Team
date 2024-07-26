@@ -5,7 +5,7 @@ class ApiService {
   final Dio dio;
 
   final headers = {
-    "X-RapidAPI-Key": '3cfde5a6b2msh6084e31c93d6709p18815bjsn4d2e88c32996',
+    "X-RapidAPI-Key": 'pk_57895279fa1a7dc1272d6946b4bffef73d9299ce3bc04',
     "X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com",
   };
   ApiService(this.dio);
@@ -14,7 +14,6 @@ class ApiService {
     final response = await dio.get(url,
         queryParameters: querystring,
         options: Options(headers: headers));
-
     return response.data;
   }
 }

@@ -6,12 +6,16 @@ class TextFormFieldWidget extends StatefulWidget {
   String labelTextInput;
   String hintTextInput;
   final IconData? prefixIconType;
+  bool? obscureTextValue;
+  bool suffixTogel;
   TextFormFieldWidget({
     super.key,
     required this.input,
     required this.labelTextInput,
     required this.hintTextInput,
-    required this.prefixIconType,
+    required this.prefixIconType, 
+    required this.obscureTextValue,
+    required this.suffixTogel,
   });
 
   @override
@@ -19,21 +23,39 @@ class TextFormFieldWidget extends StatefulWidget {
 }
 
 class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
+
   @override
   Widget build(BuildContext context) {
-    bool obscureTextValue = false;
     return TextFormField(
       controller: widget.input,
-      obscureText: obscureTextValue,
+      obscureText: widget.obscureTextValue!,
       decoration: InputDecoration(
           labelText: widget.labelTextInput,
           hintText: widget.hintTextInput,
           prefix: Icon(widget.prefixIconType),
+          suffixIcon: widget.suffixTogel
+              ? IconButton(
+            icon: Icon(
+              widget.obscureTextValue! ? Icons.visibility_off : Icons.visibility,
+            ),
+            onPressed: () {
+              setState(() {
+                widget.obscureTextValue = !widget.obscureTextValue!;
+              });
+            },
+          )
+              : null,
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(
-                color: Colors.blue,
-              ))),
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+          color: Colors.blue,
+    )
+          )
+      ),
+    // onChanged callback to update state
+    onChanged: (value) {
+    setState(() {});
+    },
     );
+    }
   }
-}
