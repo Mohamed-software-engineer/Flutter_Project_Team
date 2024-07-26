@@ -31,9 +31,8 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           prefix: Icon(widget.prefixIconType),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(
-                color: Colors.blue,
-              ))),
+              borderSide: const BorderSide(color:Colors.white,width: 2,)
+          )),
     );
   }
 }
