@@ -46,6 +46,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           )
               : null,
           border: OutlineInputBorder(
+
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(
           color: Colors.blue,

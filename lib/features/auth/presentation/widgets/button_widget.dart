@@ -26,9 +26,9 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 30),
-      width: 200,
+      width: 250,height: 55,
       decoration: BoxDecoration(
-          color: Colors.blue, borderRadius: BorderRadius.circular(30)),
+          color: Colors.white, borderRadius: BorderRadius.circular(30)),
       child: MaterialButton(
         onPressed: () {
           String enteredPassword = passwordController.text.trim();
@@ -47,6 +47,7 @@ class ButtonWidget extends StatelessWidget {
           return;
           }
           }
+
           } else {
           // Sign up functionality
           if (
@@ -65,14 +66,13 @@ class ButtonWidget extends StatelessWidget {
     }
     }
     },
-    child: Text(
-        labelOfButton,
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+     child: Text(
+  labelOfButton,
+  style: TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.bold,color: Colors.orange
+  ),
     )
-    );
+    ));
   }
 }

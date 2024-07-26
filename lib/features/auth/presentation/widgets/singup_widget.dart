@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/auth/presentation/views/login.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/button_widget.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -19,73 +20,21 @@ class _SingupWidgetState extends State<SingupWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Background Color
-    backgroundColor: Colors.pink.shade50,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Stack(
-          children: <Widget>[
-            // Top Right Circle
-            Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                width: 200,
-                height: 200,
+      body: Stack(
+        children: [
+               Container(
                 decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(200),
-                  ),
+                image: DecorationImage(
+                image: AssetImage("assets/flutter1.png"),
+                 fit: BoxFit.cover,
+
                 ),
               ),
-            ),
-            // Bottom Left Circle
-            Positioned(
-              bottom: 0,
-              left: 0,
-              child: Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(200),
-                ),
-              ),
-            ),
-            ),
-            // Title Text
-            Positioned(
-              top: 100,
-              left: 20,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Create',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    'New Account',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-                child: Container(
-              margin: EdgeInsets.all(50),
-              child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 50,right: 50,top: 180),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -93,8 +42,7 @@ class _SingupWidgetState extends State<SingupWidget> {
                           input: fullName,
                           labelTextInput: 'Name',
                           hintTextInput: 'Name',
-                          prefixIconType: Icons.person_outline,
-                        obscureTextValue: false, suffixTogel: false,),
+                          prefixIconType: Icons.person_outline, obscureTextValue: false, suffixTogel: false,),
                       const SizedBox(
                         height: 30,
                       ),
@@ -102,8 +50,7 @@ class _SingupWidgetState extends State<SingupWidget> {
                           input: email,
                           labelTextInput: 'email',
                           hintTextInput: 'email',
-                          prefixIconType: Icons.email_outlined,
-                        obscureTextValue: false, suffixTogel: false,),
+                          prefixIconType: Icons.email_outlined, suffixTogel: false, obscureTextValue: false,),
                       const SizedBox(
                         height: 30,
                       ),
@@ -111,8 +58,7 @@ class _SingupWidgetState extends State<SingupWidget> {
                           input: password,
                           labelTextInput: 'Password',
                           hintTextInput: 'Password',
-                          prefixIconType: Icons.lock_outline,
-                        obscureTextValue: true, suffixTogel: true,),
+                          prefixIconType: Icons.lock_outline, obscureTextValue: true, suffixTogel: true,),
                       const SizedBox(
                         height: 30,
                       ),
@@ -120,36 +66,70 @@ class _SingupWidgetState extends State<SingupWidget> {
                           input: confirmPassword,
                           labelTextInput: 'Confirmed Password',
                           hintTextInput: 'Confirmed Password',
-                          prefixIconType: Icons.lock_outline,
-                        obscureTextValue: true, suffixTogel: true,
-                      ),
+                          prefixIconType: Icons.lock_outline, obscureTextValue: true, suffixTogel: true ,),
                       const SizedBox(
-                        height: 50,
+                        height: 60,
                       ),
                       ButtonWidget(
                           passwordController: password,
                           confirmPasswordController: confirmPassword,
                           labelOfButton: 'Sign Up',
-                          choseLapelToButton: false,
-                          fullNameController: fullName,
-                          emailController: email)
+                          choseLapelToButton: true,
+                          fullNameController: fullName, emailController: email,),
+
+                      const SizedBox(height: 40,),
+
+                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text("Already have an account?",style: TextStyle(color: Colors.white,fontSize: 18),),
+                          TextButton(
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (_) {
+                                      return Login();
+                                    }));
+                              },
+                              child: const Text(
+                                "Login",
+                                style: TextStyle(color: Colors.amber,fontSize: 20),
+                              )),
+                        ],
+                      ),
                     ],
-                  )),
-            )),
-            // Back Button
-            Positioned(
-              top: 40,
-              left: 10,
-              child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                color: Colors.black,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
+                  ),
+                )),
+          ),
+
+          Positioned(
+            top: 20,
+            left: 10,
+            child: IconButton(
+              icon: Icon(Icons.arrow_back),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-          ],
-        ),
+          ),
+          Positioned(
+            top: 100,
+            left: 20,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Create\nnew acount',
+                  style: TextStyle(
+                    height: 1.1,
+                    fontSize: 49,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

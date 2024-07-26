@@ -8,119 +8,77 @@ class WelcomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          // Background Color
-          Container(
-            color: Colors.pink.shade50,
-          ),
-          // Top Right Circle
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(200),
-                ),
-              ),
+
+      body: SingleChildScrollView(
+        child: Container(width: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/flutter.png"),
+              fit: BoxFit.cover,
             ),
           ),
-          // Bottom Left Circle
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(200), // نصف قطر النصف دائرة
-                ),
-              ),
-            ),
-          ),
-          // Title Text
-          Positioned(
-            top: 100,
-            left: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'HELLO!',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+          child:Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30,top: 60),
+                child: Align(alignment:Alignment.topLeft,
+                  child: Text(
+                    'HELLO!',
+                    style: TextStyle(
+                      fontSize: 45,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              SizedBox(height: 460,),
+              Column(children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) {
+                          return Login();
+                        }));                },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 4,
+                    backgroundColor: Colors.white,
+                    fixedSize: Size(270, 60),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+        
+                  ),
+                  child: Text(
+                    'Log in',
+                    style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold, color: Colors.orange),
+                  ),
+                ),
+        
+                SizedBox(height: 20,),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) {
+                          return SingUp();
+                        }));                },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 4,
+                    backgroundColor: Colors.orange[400],
+                    fixedSize: Size(270, 60),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 28, color: Colors.white),
+                  ),
+                ),
+              ],)
+            ],
           ),
-          Positioned(
-              child: Container(
-            margin: EdgeInsets.all(50),
-            child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 130,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.blue,
-                          ),
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) {
-                                return Login();
-                              }));
-                            },
-                            child: Text(
-                              'Log in',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.blue,
-                          ),
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) {
-                                return SingUp();
-                              }));
-                            },
-                            child: Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                )),
-          )),
-        ],
+        ),
       ),
     );
   }
