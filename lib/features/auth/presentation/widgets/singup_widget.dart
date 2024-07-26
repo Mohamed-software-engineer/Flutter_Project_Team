@@ -2,10 +2,6 @@ import 'package:e_commerce/features/auth/presentation/widgets/button_widget.dart
 import 'package:e_commerce/features/auth/presentation/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 
-import '../../../home/presentation/views/home_screen.dart';
-import '../../data/accounts.dart';
-import '../../data/createdemails.dart';
-
 class SingupWidget extends StatefulWidget {
   const SingupWidget({super.key});
 
