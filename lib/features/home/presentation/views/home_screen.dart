@@ -14,15 +14,15 @@ class _homeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF0f0c29),
+      appBar: AppBar(iconTheme: IconThemeData(color:Colors.white,size: 30),
+        backgroundColor: Colors.orange,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 45,
+            padding: const EdgeInsets.only(right: 25),
+            child: IconButton(icon:Icon(Icons.shopping_cart),
+              onPressed: (){
+                Navigator.pushNamed(context, "cartScreen");
+              },
             ),
           )
         ],
