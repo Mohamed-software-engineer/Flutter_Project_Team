@@ -18,7 +18,15 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(onTap: () {Navigator.pushNamed(context, "detailScreen");},
+    return InkWell(onTap: () {Navigator.pushNamed(context, "detailScreen",
+        arguments:{
+          "price":price,
+          "rate":rate,
+          "rateNum": rateNum,
+          "imageUrl":imageUrl,
+          "description":description,
+          "title":title,
+        } );},
       child:
       Card(
         elevation: 4.0,
