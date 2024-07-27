@@ -7,8 +7,13 @@ class ApiService {
 //work api key:335b9d6457msh3479a0379ff16ffp139874jsnc55eb1e7267c
 //not work api key:pk_57895279fa1a7dc1272d6946b4bffef73d9299ce3bc04
   final headers = {
+<<<<<<< HEAD
     "X-RapidAPI-Key": '335b9d6457msh3479a0379ff16ffp139874jsnc55eb1e7267c', //my owen api key
     //"X-RapidAPI-Key": '/8ce17abdcdmsh079a8549188e3f6p134bb6jsn997412e203a7',
+=======
+    "X-RapidAPI-Key": '335b9d6457msh3479a0379ff16ffp139874jsnc55eb1e7267c',
+    //"X-RapidAPI-Key": '8ce17abdcdmsh079a8549188e3f6p134bb6jsn997412e203a7',
+>>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
     "X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com",
   };
   ApiService(this.dio);

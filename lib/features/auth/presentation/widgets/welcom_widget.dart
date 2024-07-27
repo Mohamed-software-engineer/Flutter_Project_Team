@@ -8,7 +8,12 @@ class WelcomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
         body: SingleChildScrollView(
+=======
+
+      body: SingleChildScrollView(
+>>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
@@ -79,8 +84,12 @@ class WelcomWidget extends StatelessWidget {
             ],)
           ],
         ),
+<<<<<<< HEAD
       ),
     )
     );
+=======
+      ),));
+>>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
   }
 }

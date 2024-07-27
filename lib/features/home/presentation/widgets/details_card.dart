@@ -13,6 +13,7 @@ class _DetailsCardState extends State<DetailsCard> {
   @override
   Widget build(BuildContext context) {
   var data = ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>;
+
     return DCard(
       imageUrl: '${data["imageUrl"]}',
       title: '${data["title"]}',
@@ -125,9 +126,7 @@ class DCard extends StatelessWidget {
             SizedBox(height: 70.0),
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  // Add to Cart action
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
                   fixedSize: Size(250, 50),

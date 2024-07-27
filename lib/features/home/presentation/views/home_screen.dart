@@ -34,6 +34,11 @@ class _homeScreenState extends State<HomeScreen> {
           )
         ],
       ),
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
         drawer: Drawer(
           child: Container(
             padding: EdgeInsets.all(15),
@@ -157,10 +162,7 @@ class _homeScreenState extends State<HomeScreen> {
               ),
             )),
             SliverToBoxAdapter(
-                child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: const ProductScroll())),
+                    child: const ProductScroll()),
           ],
         ),
       ),
