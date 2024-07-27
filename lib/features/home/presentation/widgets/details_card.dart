@@ -1,22 +1,27 @@
+import 'package:e_commerce/features/home/data/models/product_by_category_moedl.dart';
 import 'package:flutter/material.dart';
 
-class DetailsCard extends StatelessWidget {
+class DetailsCard extends StatefulWidget {
   const DetailsCard({Key? key}) : super(key: key);
 
   @override
+  State<DetailsCard> createState() => _DetailsCardState();
+}
+
+class _DetailsCardState extends State<DetailsCard> {
+
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: DCard(
-        imageUrl: 'assets/NOIMAGE.jpeg',
-        title: 'Product Title',
-        description:
-            'This is a detailed description of the product. It covers all the features, specifications, and benefits of the product.',
-        price: '\$29.99',
-        rating: 4.5,
-        reviewsCount: 123,
-        availableItems: 10,
-      ),
+  var data = ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>;
+    return DCard(
+      imageUrl: '${data["imageUrl"]}',
+      title: '${data["title"]}',
+      description:
+          '${data["description"]!=null?data["description"]:"this product has no description"}',
+      price: '${data["price"]}',
+      rating: 4.5,
+      reviewsCount: 123,
+      availableItems: 10, companytitle: 'alpha company ',
     );
   }
 }
@@ -24,6 +29,7 @@ class DetailsCard extends StatelessWidget {
 class DCard extends StatelessWidget {
   final String imageUrl;
   final String title;
+  final String companytitle;
   final String description;
   final String price;
   final double rating;
@@ -37,24 +43,20 @@ class DCard extends StatelessWidget {
     required this.price,
     required this.rating,
     required this.reviewsCount,
-    required this.availableItems,
+    required this.availableItems, required this.companytitle,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4.0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
-      ),
+    return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Image.asset(
+              borderRadius: BorderRadius.circular(13.0),
+              child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
                 height: 300,
@@ -69,7 +71,14 @@ class DCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 5.0),
+            Text(
+              companytitle,
+              style: TextStyle(
+                fontSize: 15.0,
+                color: Colors.grey,
+              ),
+            ),
+            SizedBox(height: 20.0),
             Text(
               description,
               style: TextStyle(
@@ -77,7 +86,7 @@ class DCard extends StatelessWidget {
                 color: Colors.grey[600],
               ),
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 20.0),
             Text(
               'Available : $availableItems',
               style: TextStyle(
@@ -113,21 +122,21 @@ class DCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 40.0),
+            SizedBox(height: 70.0),
             Center(
               child: ElevatedButton(
                 onPressed: () {
                   // Add to Cart action
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
+                  backgroundColor: Colors.orange,
                   fixedSize: Size(250, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
                 child: Text(
-                  'Add to Cart',
+                  'Add to Cart ',
                   style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
               ),

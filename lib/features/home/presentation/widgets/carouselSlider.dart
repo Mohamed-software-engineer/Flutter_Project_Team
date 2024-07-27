@@ -3,21 +3,20 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class Carousel extends StatelessWidget {
   final List<Widget> _ImAgeList = [
-    ClipRRect(borderRadius: BorderRadius.circular(20),
-        child: Image.asset("assets/1.jpeg")),
-    ClipRRect(borderRadius: BorderRadius.circular(20),
-        child: Image.asset("assets/2.jpeg")),
-    ClipRRect(borderRadius: BorderRadius.circular(20),
+    ClipRRect(borderRadius: BorderRadius.circular(40),
+        child: Image.asset("assets/1.png")),
+    ClipRRect(borderRadius: BorderRadius.circular(40),
+        child: Image.asset("assets/2.png")),
+    ClipRRect(borderRadius: BorderRadius.circular(40),
         child: Image.asset("assets/3.jpeg")),
-    ClipRRect(borderRadius: BorderRadius.circular(20),
-        child: Image.asset("assets/4.jpeg")),  ];
+      ];
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: CarouselSlider(
         options: CarouselOptions(
-          height: 180.0,
+          height: 280,
           enlargeCenterPage: true,
           autoPlay: true,
           autoPlayInterval: Duration(seconds: 3),
