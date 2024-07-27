@@ -1,5 +1,5 @@
 class ProductByCategoryMoedl {
-  String? asin;
+  String? asin; //Amazon.com Standard Item Number refer to specific item
   String? productTitle;
   String? productPrice;
   String? productOriginalPrice;

@@ -10,7 +10,9 @@ class WelcomWidget extends StatelessWidget {
     return Scaffold(
 
       body: SingleChildScrollView(
-        child: Container(width: double.infinity,
+        child: Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/flutter.png"),

@@ -27,8 +27,8 @@ class ProductCard extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Expanded(
-            child: Column(
+          child: Flexible(
+            child: Column( // Remove Expanded or move it correctly
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ClipRRect(
@@ -68,28 +68,28 @@ class ProductCard extends StatelessWidget {
                       size: 20,
                     ),
                     Text(
-                      "${rate}",
+                      "$rate",
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
                     ),
                     Text(
                       " ($rateNum)",
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.black),
-                    )
+                        fontSize: 16,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.black,
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-
         ),
       )
-
     );
   }
 }
