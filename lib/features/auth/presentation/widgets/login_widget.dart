@@ -19,10 +19,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-<<<<<<< HEAD
         scrollDirection: Axis.vertical,
-=======
->>>>>>> 389f5c37f610e5db45f7e492f0cc130bf5ab7bd0
         child: Stack(
           children:[
             Container(
@@ -32,11 +29,6 @@ class _LoginWidgetState extends State<LoginWidget> {
               fit: BoxFit.cover,
             ),
           ),
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 389f5c37f610e5db45f7e492f0cc130bf5ab7bd0
             child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -63,15 +55,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                   prefixIconType: Icons.lock_outline,
                   obscureTextValue: true, suffixTogel: true,
                 ),
-<<<<<<< HEAD
 
                 const SizedBox(height: 60,),
 
-=======
-        
-                const SizedBox(height: 60,),
-        
->>>>>>> 389f5c37f610e5db45f7e492f0cc130bf5ab7bd0
                 ButtonWidget(
                   passwordController: password,
                   labelOfButton: 'Log in',
@@ -80,30 +66,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                   confirmPasswordController: null,
                   emailController: null,
                 ),
-<<<<<<< HEAD
 
                 const SizedBox(height: 20,),
 
-=======
-        
-                const SizedBox(height: 20,),
-        
->>>>>>> 389f5c37f610e5db45f7e492f0cc130bf5ab7bd0
                 TextButton(
                     onPressed: () {},
                     child: const Text(
                       "Forgot Password?",
                       style: TextStyle(color: Colors.amberAccent,fontSize: 18),
                     ),),
-<<<<<<< HEAD
 
                 const SizedBox(height: 60,),
 
-=======
-        
-                const SizedBox(height: 60,),
-        
->>>>>>> 389f5c37f610e5db45f7e492f0cc130bf5ab7bd0
                 Row(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Don't have an account?",style: TextStyle(color: Colors.white,fontSize: 18),),

@@ -8,9 +8,7 @@ class WelcomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-<<<<<<< HEAD
-      body: SingleChildScrollView(
+        body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
@@ -19,15 +17,7 @@ class WelcomWidget extends StatelessWidget {
               image: AssetImage("assets/flutter.png"),
               fit: BoxFit.cover,
             ),
-=======
-      body: Container(width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/flutter.png"),
-            fit: BoxFit.cover,
->>>>>>> 389f5c37f610e5db45f7e492f0cc130bf5ab7bd0
           ),
-        ),
         child:Column(
           children: [
             Padding(
@@ -90,6 +80,7 @@ class WelcomWidget extends StatelessWidget {
           ],
         ),
       ),
+    )
     );
   }
 }

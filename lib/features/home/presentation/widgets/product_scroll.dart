@@ -38,6 +38,8 @@ class _ProductScrollState extends State<ProductScroll> {
                 childAspectRatio: 0.7,
               ),
               itemCount: state.product.length,
+          //    physics: NeverScrollableScrollPhysics(),
+             // shrinkWrap: false,
               itemBuilder: (context, index) {
                 return ProductCard(
                   imageUrl: state.product[index].productPhoto ?? 'assets/NOIMAGE.jpeg',
