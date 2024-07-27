@@ -50,7 +50,6 @@ class ButtonWidget extends StatelessWidget {
 
           } else {
           // Sign up functionality
-
           if (
           enteredPassword == enteredConfirmedPassword &&
           enteredPassword.isNotEmpty &&

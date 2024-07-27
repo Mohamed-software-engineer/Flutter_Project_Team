@@ -1,11 +1,8 @@
-import 'package:dio/dio.dart';
-import 'package:e_commerce/core/utiles/apiservice.dart';
-import 'package:e_commerce/features/home/data/models/product_by_category_moedl.dart';
-import 'package:e_commerce/features/home/data/repo/home_repo_impl.dart';
+import 'package:e_commerce/features/home/presentation/state_mangment/cubit.dart';
+import 'package:e_commerce/features/home/presentation/state_mangment/states.dart';
 import 'package:e_commerce/features/home/presentation/widgets/product_card.dart';
 import 'package:flutter/material.dart';
-import 'package:dartz/dartz.dart' as dartz;
-import '../../../../core/errors/faliure.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductScroll extends StatefulWidget {
   const ProductScroll({Key? key}) : super(key: key);
@@ -15,31 +12,67 @@ class ProductScroll extends StatefulWidget {
 }
 
 class _ProductScrollState extends State<ProductScroll> {
-  HomeRepoImpl homeRepoImpl = HomeRepoImpl(ApiService(Dio()));
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ProductCubit cubit = BlocProvider.of<ProductCubit>(context);
+    cubit.featchData();
+  }
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<dartz.Either<Faliure, List<ProductByCategoryMoedl>>>(
-      future: homeRepoImpl.featchAll(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (snapshot.hasError) {
-          return Center(
-            child: Text("Error: ${snapshot.error}"),
-          );
-        } else if (snapshot.hasData) {
-          return snapshot.data!.fold(
-                (failure) => Text("Error: in has error layer : ${failure.toString()}"),
-                (product) {
-              if (product.isEmpty) {
-                return const Center(
-                  child: Text("No Products Found"),
+    return BlocConsumer<ProductCubit, ProductStates>(
+        builder: (context, state){
+      if (state is LoadingState)
+        {
+          return const Center(child: CircularProgressIndicator());
+        }
+      else if (state is LoadedState)
+        {
+          return SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.7,
+              ),
+              itemCount: state.product.length,
+              itemBuilder: (context, index) {
+                return ProductCard(
+                  imageUrl: state.product[index].productPhoto ?? 'assets/NOIMAGE.jpeg',
+                  title: state.product[index].productTitle ?? '',
+                  price: state.product[index].productPrice ?? '0.0',
+                  rate: state.product[index].productStarRating ?? 0,
+                  rateNum: state.product[index].productNumRatings ?? '0',
+                  description: '',
                 );
-              }
-              return SizedBox(
+              },
+            ),
+          );
+        }
+      else if (state is ErrorState)
+        {
+          return Text("Error: ${state.error}");
+        }
+      else{
+        return const Center(
+          child: Text("No Product Found"),
+        );
+      }
+    }, listener: (context, state) {
+    if (state is ErrorState) {
+    ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+    content: Text('Error: ${state.error}'),
+    ),
+    );
+    }
+    });
+  }
+}
+
+/*SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.7,
                 child: GridView.builder(
@@ -58,17 +91,7 @@ class _ProductScrollState extends State<ProductScroll> {
                     );
                   },
                 ),
-              );
-            },
-          );
-        } else {
-          return const Center(child: Text("No Products Found"));
-        }
-      },
-    );
-  }
-}
-
+              )*/
 /*SliverGrid(delegate: SliverChildBuilderDelegate((context,i){
       return  ProductCard(imageUrl1: '', title1: '', description1: '', price1: '',);
     },childCount: 10),

@@ -28,19 +28,21 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bloc: ^8.1.4
   cupertino_icons: ^1.0.6
+  dartz: null
   dio: ^5.5.0+1
-  dartz:
   flutter:
     sdk: flutter
-  lottie: ^3.1.2
+  flutter_bloc: ^8.1.6
   flutter_dotenv: ^5.0.2
+  lottie: ^3.1.2
 
 dev_dependencies:
+  carousel_slider: ^4.0.0
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-  carousel_slider: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
