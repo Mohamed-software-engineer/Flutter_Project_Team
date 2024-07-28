@@ -9,7 +9,8 @@ import '../../data/repo/home_repo_impl.dart';
 class ProductCubit extends Cubit<ProductStates>
 {
   HomeRepoImpl homeRepoImpl;
-
+  int Anum = 0;
+  double resulte = 0;
   ProductCubit(this.homeRepoImpl): super(InitState());
 
   featchData() async {
@@ -26,5 +27,16 @@ class ProductCubit extends Cubit<ProductStates>
     {
       emit(LoadedState(products));
     });
+  }
+
+  void increment(double price){
+    Anum++;
+    resulte = Anum * price;
+    emit(refesh());
+  }
+  void decrement(double price){
+    Anum--;
+    resulte = Anum * price;
+    emit(refesh());
   }
 }

@@ -44,10 +44,19 @@ class _ProductScrollState extends State<ProductScroll> {
                 return ProductCard(
                   imageUrl: state.product[index].productPhoto ?? 'assets/NOIMAGE.jpeg',
                   title: state.product[index].productTitle ?? '',
-                  price: state.product[index].productPrice ?? '0.0',
-                  rate: state.product[index].productStarRating ?? 0,
+                  productPrice: state.product[index].productPrice ?? '0.0',
+                  rate: state.product[index].productStarRating ?? '0',
                   rateNum: state.product[index].productNumRatings ?? '0',
-                  description: '',
+                  productOriginalPrice: state.product[index].productOriginalPrice ?? '0',
+                  productNumOffers: state.product[index].productNumOffers ?? '0',
+                  productMinimumOfferPrice: state.product[index].productMinimumOfferPrice ?? '0',
+                  isBestSeller: state.product[index].isBestSeller ?? '0',
+                  isAmazonChoice: state.product[index].isAmazonChoice ?? '0',
+                  salesVolume: state.product[index].salesVolume ?? '0',
+                  delivery: state.product[index].delivery ?? '0',
+                  hasVariations: state.product[index].hasVariations ?? '0',
+                  deliveryProduct: state.product[index],
+
                 );
               },
             ),
@@ -66,6 +75,7 @@ class _ProductScrollState extends State<ProductScroll> {
     if (state is ErrorState) {
     ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
+      backgroundColor: Colors.orange,
     content: Text('Error: ${state.error}'),
     ),
     );

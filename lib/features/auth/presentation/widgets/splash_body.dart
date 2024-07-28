@@ -14,7 +14,7 @@ class SplashBody extends StatefulWidget {
 class _SplashBodyState extends State<SplashBody> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return WelcomScreen();
       }));

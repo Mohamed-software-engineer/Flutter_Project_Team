@@ -34,11 +34,6 @@ class _homeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
         drawer: Drawer(
           child: Container(
             padding: EdgeInsets.all(15),
@@ -92,7 +87,9 @@ class _homeScreenState extends State<HomeScreen> {
                   height: 15,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, "CartScreen");
+                  },
                   child: ListTile(
                     leading: Icon(Icons.shopping_cart),
                     title: Text(
@@ -105,7 +102,9 @@ class _homeScreenState extends State<HomeScreen> {
                   height: 15,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+
+                  },
                   child: ListTile(
                     leading: Icon(Icons.phone),
                     title: Text(
@@ -118,7 +117,9 @@ class _homeScreenState extends State<HomeScreen> {
                   height: 15,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+
+                  },
                   child: ListTile(
                     leading: Icon(Icons.info),
                     title: Text(
@@ -131,7 +132,9 @@ class _homeScreenState extends State<HomeScreen> {
                   height: 15,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, "login");
+                  },
                   child: ListTile(
                     leading: Icon(Icons.output),
                     title: Text(

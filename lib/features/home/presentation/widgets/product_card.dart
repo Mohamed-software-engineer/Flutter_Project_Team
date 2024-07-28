@@ -1,31 +1,59 @@
+import 'package:e_commerce/features/home/data/models/product_by_category_moedl.dart';
 import 'package:flutter/material.dart';
 
 
 class ProductCard extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String description;
-  final String price;
-  final double rate;
-  final  rateNum;
+  final  imageUrl;
+  final  title;
+  final  productPrice;
+  final productOriginalPrice;
+  final productNumOffers;
+  final productMinimumOfferPrice;
+  final isBestSeller;
+  final isAmazonChoice;
+  final salesVolume;
+  final delivery;
+  final hasVariations;
+  final  rate;
+  final rateNum;
+  final ProductByCategoryMoedl deliveryProduct;
+
 
   const ProductCard({
     required this.imageUrl,
     required this.title,
-    required this.description,
-    required this.price, required this.rate, this.rateNum,
+    required this.rate,
+    required this.rateNum,
+    required this.productPrice,
+    required this.productOriginalPrice,
+    required this.productNumOffers,
+    required this.productMinimumOfferPrice,
+    required this.isBestSeller,
+    required this.isAmazonChoice,
+    required this.salesVolume,
+    required this.delivery,
+    required this.hasVariations,
+    required this.deliveryProduct,
   });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(onTap: () {Navigator.pushNamed(context, "detailScreen",
+    return InkWell(onTap: () {
+      Navigator.pushNamed(context, "detailScreen",
         arguments:{
-          "price":price,
+          "productPrice":productPrice,
           "rate":rate,
           "rateNum": rateNum,
           "imageUrl":imageUrl,
-          "description":description,
           "title":title,
+          "productOriginalPrice": productOriginalPrice,
+          "productNumOffers": productNumOffers,
+          "productMinimumOfferPrice": productMinimumOfferPrice,
+          "isBestSeller": isBestSeller,
+          "isAmazonChoice": isAmazonChoice,
+          "salesVolume": salesVolume,
+          "delivery": delivery,
+          "deliveryProduct": deliveryProduct,
         } );},
       child:
       Card(
@@ -62,7 +90,7 @@ class ProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      price,
+                      productPrice,
                       style: const TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,

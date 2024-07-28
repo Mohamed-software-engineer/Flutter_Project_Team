@@ -17,3 +17,5 @@ class ErrorState extends ProductStates {
 
   ErrorState(this.error);
 }
+
+class refesh extends ProductStates {}

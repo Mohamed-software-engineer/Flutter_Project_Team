@@ -20,10 +20,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-<<<<<<< HEAD
-=======
 
->>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
         child: Stack(
           children:[
             Container(
@@ -62,10 +59,6 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                 const SizedBox(height: 60,),
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
                 ButtonWidget(
                   passwordController: password,
                   labelOfButton: 'Log in',
@@ -77,10 +70,6 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                 const SizedBox(height: 20,),
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
                 TextButton(
                     onPressed: () {},
                     child: const Text(
@@ -90,10 +79,6 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                 const SizedBox(height: 60,),
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 633d45c778ae649e18370b9c3c7d345fd5591b8f
                 Row(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Don't have an account?",style: TextStyle(color: Colors.white,fontSize: 18),),
